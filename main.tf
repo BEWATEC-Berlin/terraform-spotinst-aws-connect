@@ -32,7 +32,7 @@ EOT
 #    filename = "externalid.json"
 #}
 locals {
-    user_data = jsondecode(data.external.externalid.content)
+    user_data = jsondecode(data.external.externalid)
     externalids = [for item in local.user_data.response.items : item.externalId]
 }
 
