@@ -13,3 +13,11 @@ output "status_code" {
 output "externalid" {
   value = local.externalids[0]
 }
+
+output "externalid" {
+  value = local.externalids[0]
+}
+
+output "test" {
+  value = null_resource.externalid
+}

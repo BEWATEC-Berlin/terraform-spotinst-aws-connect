@@ -14,9 +14,16 @@ data "http" "externalid" {
     Content-Type = "application/json"
     Authorization = "Bearer ${var.spotinst_token}"
   }
-
 }
-
+resource "null_resource" "externalid" {
+    provisioner "local-exec" {
+        command = <<EOT
+             curl -X POST https://api.spotinst.io/setup/credentials/aws/externalId?accountId=${spotinst_account_aws.spot_acct.id} \
+             -H 'Content-Type: application/json' \
+             -H "Authorization: Bearer ${var.spotinst_token}"
+EOT
+    }
+}
 
 locals {
     user_data = jsondecode(data.http.externalid.response_body)
