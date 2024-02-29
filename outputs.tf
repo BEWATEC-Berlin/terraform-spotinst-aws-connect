@@ -9,4 +9,7 @@ output "response_body" {
 output "status_code" {
   value = data.http.externalid.status_code
 }
-#24g
+
+output "externalid" {
+  value = local.externalids[0]
+}
