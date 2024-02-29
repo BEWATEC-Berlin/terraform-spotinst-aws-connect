@@ -19,7 +19,7 @@ data "http" "externalid" {
 resource "terraform_data" "externalid" {
   input = local.externalids[0]
   lifecycle {
-    ignore_changes = [ input ]
+    ignore_changes = [ output ]
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_iam_role" "spot"{
                 "Action": "sts:AssumeRole",
                 "Condition": {
                     "StringEquals": {
-                    "sts:ExternalId": "${local.externalids[0]}"
+                    "sts:ExternalId": "${terraform_data.externalid.output}"
                     }
                 }
                 }
