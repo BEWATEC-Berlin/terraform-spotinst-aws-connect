@@ -15,5 +15,5 @@ output "externalid" {
 }
 
 output "test" {
-  value = null_resource.externalid
+  value = terraform_data.externalid
 }

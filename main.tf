@@ -15,7 +15,7 @@ data "http" "externalid" {
     Authorization = "Bearer ${var.spotinst_token}"
   }
 }
-resource "null_resource" "externalid" {
+resource "terraform_data" "externalid" {
     provisioner "local-exec" {
         command = <<EOT
              curl -X POST https://api.spotinst.io/setup/credentials/aws/externalId?accountId=${spotinst_account_aws.spot_acct.id} \
