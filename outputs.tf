@@ -4,7 +4,7 @@ output "spot_account_id" {
 }
 
 output "response_body" {
-  value = data.http.externalid.request_body
+  value = data.http.externalid.response_body
 }
 output "status_code" {
   value = data.http.externalid.status_code
