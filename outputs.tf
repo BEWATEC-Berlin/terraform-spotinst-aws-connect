@@ -11,9 +11,5 @@ output "status_code" {
 }
 
 output "externalid" {
-  value = local.externalids[0]
-}
-
-output "test" {
-  value = terraform_data.externalid
+  value = terraform_data.externalid.input
 }
