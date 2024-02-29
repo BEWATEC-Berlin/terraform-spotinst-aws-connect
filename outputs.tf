@@ -3,6 +3,9 @@ output "spot_account_id" {
     value = spotinst_account_aws.spot_acct.id
 }
 
-output "test" {
-  value = data.external.externalid
+output "response_body" {
+  value = data.http.externalid.request_body
+}
+output "status_code" {
+  value = data.http.externalid.status_code
 }
