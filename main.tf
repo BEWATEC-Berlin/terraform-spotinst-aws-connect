@@ -19,7 +19,7 @@ data "http" "externalid" {
 resource "terraform_data" "externalid" {
   input = local.externalids[0]
   lifecycle {
-    ignore_changes = [ output ]
+    ignore_changes = [ input ]
   }
 }
 
