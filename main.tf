@@ -30,7 +30,7 @@ data "http" "externalid" {
 
 
 locals {
-    user_data = jsondecode(data.http.externalid)
+    user_data = jsondecode(data.http.externalid.response_body)
     externalids = [for item in local.user_data.response.items : item.externalId]
 }
 
