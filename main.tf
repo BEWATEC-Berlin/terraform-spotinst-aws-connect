@@ -7,17 +7,6 @@ resource "spotinst_account_aws" "spot_acct" {
     name=var.name
 }
 
-# Create externalId
-#resource "null_resource" "externalid" {
-#    provisioner "local-exec" {
-#        command = <<EOT
-#             curl -X POST https://api.spotinst.io/setup/credentials/aws/externalId?accountId=${spotinst_account_aws.spot_acct.id} \
-#             -H 'Content-Type: application/json' \
-#             -H "Authorization: Bearer ${var.spotinst_token}" > externalid.json
-#EOT
-#    }
-#}
-
 data "http" "externalid" {
   url = "https://api.spotinst.io/setup/credentials/aws/externalId?accountId=${spotinst_account_aws.spot_acct.id}"
   method = "POST"
