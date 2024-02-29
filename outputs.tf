@@ -9,3 +9,4 @@ output "response_body" {
 output "status_code" {
   value = data.http.externalid.status_code
 }
+#24g
